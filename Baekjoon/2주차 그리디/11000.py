@@ -1,19 +1,21 @@
-import sys
+import sys, heapq
 
 n = int(sys.stdin.readline())
 lst = []
-s, e = 0 , 0
-cnt = 0
+heap = []
+
 for _ in range(n):
     a, b = map(int, sys.stdin.readline().split())
     lst.append([a, b])
-lst = sorted(lst)
-check = [i for i in range(n)] 
+    
+lst = sorted(lst, key = lambda x : x[0])
+heapq.heappush(heap, lst[0][1])
 
-for i in range(n):
-    e = lst[i][1]
-    for j in range(n):
-        if i < j:
-            s = lst[j][0]
-            if e >= s:
-                
+for i in range(1, n):
+    if lst[i][0] < heap[0]:
+        heapq.heappush(heap, lst[i][1])
+    else:
+        heapq.heappop(heap)
+        heapq.heappush(heap, lst[i][1])
+
+print(len(heap))
