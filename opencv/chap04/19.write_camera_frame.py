@@ -20,7 +20,7 @@ capture.set(cv2.CAP_PROP_FRAME_WIDTH , size[0])     	# 해상도 설정
 capture.set(cv2.CAP_PROP_FRAME_HEIGHT, size[1])
 
 # 동영상 파일 개방 및 코덱, 해상도 설정
-writer = cv2.VideoWriter("images/video_file.avi", fourcc, fps, size)
+writer = cv2.VideoWriter("opencv/chap04/images/video_file.avi", fourcc, fps, size)
 if writer.isOpened() == False: raise Exception("동영상 파일 개방 안됨")
 
 while True:

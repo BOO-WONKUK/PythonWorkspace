@@ -1,7 +1,7 @@
 import cv2
-from Common.utils import put_string
+# from Common.utils import put_string
 
-capture = cv2.VideoCapture("images/video_file.avi")		# 동영상 파일 개방
+capture = cv2.VideoCapture("opencv/chap04/images/video_file.avi")		# 동영상 파일 개방
 if not capture.isOpened(): raise Exception("동영상 파일 개방 안됨")		# 예외 처리
 
 frame_rate = capture.get(cv2.CAP_PROP_FPS)           		# 초당 프레임 수
@@ -19,6 +19,6 @@ while True:
 	elif 300 <= frame_cnt < 400: cv2.add(red  , 100, red)   	# red 채널 밝기 증가
 
 	frame = cv2.merge( [blue, green, red] )                 # 단일채널 영상 합성
-	put_string(frame, "frame_cnt : ", (20, 320), frame_cnt)
+	# put_string(frame, "frame_cnt : ", (20, 320), frame_cnt)
 	cv2.imshow("Read Video File", frame)
 capture.release()
