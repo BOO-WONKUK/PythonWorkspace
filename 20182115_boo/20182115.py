@@ -3,7 +3,7 @@ import numpy as np
 import cv2
 import random
 
-background = cv2.imread("color.jpg", cv2.IMREAD_COLOR)     # 배경화면 영상
+background = cv2.imread("20182115_boo/color.jpg", cv2.IMREAD_COLOR)     # 배경화면 영상
 if background is None: raise Exception("영상파일 읽기 오류 발생")
 text_mask = np.zeros((360, 480), np.uint8)                              # 검은 마스크 영상
 
@@ -17,7 +17,7 @@ fps = 29.97                                         # 초당 프레임 수
 delay = round(1000/ fps)                            # 프레임 간 지연 시간
 size  = (480, 360)                                  # 동영상 파일 해상도
 fourcc = cv2.VideoWriter_fourcc(*'DX50')            # 압축 코덱 설정
-writer = cv2.VideoWriter("ScreenProtect_20182115.avi", fourcc, fps, size)      # 동영상 파일 개방 및 코덱, 해상도 설정
+writer = cv2.VideoWriter("20182115_boo/ScreenProtect_20182115a.avi", fourcc, fps, size)      # 동영상 파일 개방 및 코덱, 해상도 설정
 
 while True:
     text_mask.fill(0)
